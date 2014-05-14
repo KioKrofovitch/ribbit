@@ -1,23 +1,15 @@
 package com.kiokrofovitch.ribbit;
 
-import java.util.Locale;
-
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.Window;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
@@ -45,6 +37,7 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_main);
 		
 		ParseAnalytics.trackAppOpened(getIntent());
@@ -113,6 +106,10 @@ public class MainActivity extends FragmentActivity implements
 		if( itemId == R.id.action_logout ){
 			ParseUser.logOut();
 			navigateToLogin();
+		}
+		else if (itemId == R.id.action_edit_friends){
+			Intent intent = new Intent(this, EditFriendsActivity.class);
+			startActivity(intent);
 		}
 		
 		return super.onOptionsItemSelected(item);
