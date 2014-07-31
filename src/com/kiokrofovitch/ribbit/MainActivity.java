@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
@@ -184,6 +185,7 @@ public class MainActivity extends FragmentActivity implements
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_main);
 		
+		Parse.initialize(this, "5FWlEIdkjo904DUK5U2RXg1BZ9sCm8gLWYhM74Zs", "v9DvICz8rHC5bQJmvYSx3NG434g9qEhRxDORm3mO");
 		ParseAnalytics.trackAppOpened(getIntent());
 		ParseUser currentUser = ParseUser.getCurrentUser();
 		if( currentUser == null ) {
