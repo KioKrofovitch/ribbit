@@ -186,7 +186,7 @@ public class RecipientsActivity extends ListActivity {
 			
 			String fileName = FileHelper.getFileName(this, mMediaUri, mFileType);
 			ParseFile file = new ParseFile(fileName, fileBytes);
-			message.put(ParseConstants.KEY_FILE, fileName);
+			message.put(ParseConstants.KEY_FILE, file);
 
 			return message;
 		}
